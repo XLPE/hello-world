@@ -8,11 +8,13 @@
 
 class JLockHelper;
 
-struct JAbsXMutex
+class JAbsXMutex
 {
-	virtual void Lock() const = 0;
-	virtual void Unlock() const = 0;
-}
+	public:
+		virtual ~JAbsXMutex(){}
+		virtual void Lock() const = 0;
+		virtual void Unlock() const = 0;
+};
 
 // X锁(互斥锁)类
 class JXMutex : public JAbsXMutex
@@ -138,7 +140,7 @@ class JLockHelper
 
 	private:
 		const JAbsXMutex& m_xMutex;
-}
+};
 
 
 template <class _Tp>

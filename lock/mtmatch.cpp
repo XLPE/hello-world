@@ -8,9 +8,9 @@
 using namespace std;
 
 // 待处理队列
-JSafeFSeq<deque<string*>> g_HandleDeque;
+JSafeFSeq< deque<string*> > g_HandleDeque;
 // 结果列表
-JSafeSeq<list<string*>> g_ResList;
+JSafeSeq< list<string*> > g_ResList;
 // 输入结束标志
 JSafeBool g_bPutOver(false);
 // 当前运行的工作线程数
@@ -24,7 +24,7 @@ inline u_int usleep_r(u_int usec)
 {
 	// usleep的线程安全版本
 	struct timespec rqtp;
-	struct timespce rem;
+	struct timespec rem;
 
 	memset(&rem, 0, sizeof(rem));
 	rqtp.tv_sec = usec / 1000000;
@@ -104,7 +104,7 @@ int main(int argc, char** argv)
 	delete pLine;
 	
 	// 结束设置
-	g_bPutOver = true;
+	g_bPutOver = JSafeBool(true);
 
 	while(1)
 	{
